@@ -1,0 +1,11 @@
+{
+  "name": "fdrm-vix-deck",
+  "private": true,
+  "description": "Builds docs/fdrm_vix_presentation.pptx from the charts in figures/",
+  "scripts": {
+    "deck": "node build_deck.js docs/fdrm_vix_presentation.pptx"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

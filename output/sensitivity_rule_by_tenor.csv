@@ -1,0 +1,21 @@
+structure,rule,CAGR,maxDD,sharpe,covid,CAGR_ex_covid,maxDD_ex_covid
+2M rolled,Hold to expiry,10.5,-35.86,0.22,-35.8,13.83,-17.23
+2M rolled,Sell all at VIX 22,10.39,-36.27,0.22,-36.21,13.84,-17.23
+2M rolled,Ladder 22 / 30,10.45,-36.07,0.22,-36.01,13.84,-17.23
+2M rolled,Trailing (fade 20%),10.5,-35.86,0.22,-35.8,13.83,-17.23
+2M rolled,Hybrid (proposed),10.45,-36.07,0.22,-36.01,13.84,-17.23
+3M rolled,Hold to expiry,17.21,-17.23,0.74,-6.33,15.25,-17.23
+3M rolled,Sell all at VIX 22,10.97,-35.94,0.25,-35.89,14.36,-17.23
+3M rolled,Ladder 22 / 30,11.92,-33.93,0.31,-33.88,14.81,-17.23
+3M rolled,Trailing (fade 20%),16.53,-17.23,0.68,-6.33,15.33,-17.23
+3M rolled,Hybrid (proposed),13.87,-21.95,0.48,-21.11,14.85,-17.23
+3M staggered thirds,Hold to expiry,13.04,-27.76,0.4,-27.7,14.96,-17.23
+3M staggered thirds,Sell all at VIX 22,10.75,-37.61,0.24,-37.56,14.65,-17.23
+3M staggered thirds,Ladder 22 / 30,11.08,-36.94,0.26,-36.89,14.81,-17.23
+3M staggered thirds,Trailing (fade 20%),12.76,-27.76,0.38,-27.7,14.99,-17.23
+3M staggered thirds,Hybrid (proposed),11.77,-32.68,0.31,-32.63,14.82,-17.23
+6M staggered sixths,Hold to expiry,11.01,-33.07,0.27,-33.02,14.87,-17.32
+6M staggered sixths,Sell all at VIX 22,10.86,-37.94,0.24,-37.89,14.87,-17.32
+6M staggered sixths,Ladder 22 / 30,10.95,-37.61,0.25,-37.56,14.87,-17.32
+6M staggered sixths,Trailing (fade 20%),11.79,-33.07,0.31,-33.02,14.94,-17.32
+6M staggered sixths,Hybrid (proposed),11.33,-35.51,0.27,-35.46,14.91,-17.32

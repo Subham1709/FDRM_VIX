@@ -1,0 +1,26 @@
+strategy,skew_per_pct,half_spread,CAGR,maxDD
+always_put,0.0,0.0,11.091,-17.889
+timed_hybrid,0.0,0.0,15.06,-21.689
+always_put,0.0,0.5,10.732,-18.151
+timed_hybrid,0.0,0.5,14.767,-21.701
+always_put,0.0,1.0,10.36,-18.417
+timed_hybrid,0.0,1.0,14.471,-21.711
+always_put,0.6,0.0,8.731,-19.34
+timed_hybrid,0.6,0.0,14.251,-21.941
+always_put,0.6,0.5,8.3,-19.628
+timed_hybrid,0.6,0.5,13.871,-21.951
+always_put,0.6,1.0,7.86,-19.919
+timed_hybrid,0.6,1.0,13.491,-21.96
+always_put,1.0,0.0,6.938,-20.393
+timed_hybrid,1.0,0.0,13.75,-22.134
+always_put,1.0,0.5,6.472,-20.693
+timed_hybrid,1.0,0.5,13.328,-22.142
+always_put,1.0,1.0,6.0,-20.995
+timed_hybrid,1.0,1.0,12.906,-22.151
+"proposed, tenor 1M",0.6,0.5,10.441,-38.506
+"proposed, tenor 2M",0.6,0.5,10.447,-36.066
+"proposed, tenor 3M",0.6,0.5,13.871,-21.951
+"proposed, tenor 6M",0.6,0.5,13.618,-21.38
+"proposed, strike 90%",0.6,0.5,13.035,-24.898
+"proposed, strike 95%",0.6,0.5,13.871,-21.951
+"proposed, strike 100%",0.6,0.5,15.311,-18.627

@@ -1,0 +1,1640 @@
+{
+ "sample": {
+  "start": "2020-01-02",
+  "end": "2026-04-13",
+  "days": 1536,
+  "vix_pct": {
+   "0.1": 11.37,
+   "0.3": 13.39,
+   "0.5": 15.27,
+   "0.8": 20.97,
+   "0.9": 24.12
+  },
+  "regime_share": {
+   "Normal": 0.48,
+   "Low": 0.266,
+   "High": 0.255
+  }
+ },
+ "vix_construction": {
+  "flat15": 15.0,
+  "skewed_atm15": 16.11
+ },
+ "vrp": {
+  "mean_vix": 17.34,
+  "mean_rv_fwd": 15.107,
+  "mean_vrp": 2.233,
+  "median_vrp": 2.982,
+  "share_positive": 0.784,
+  "corr_vix_rvfwd": 0.612,
+  "corr_vix_rvtrail": 0.861,
+  "nw_t_mean_vrp": 2.763,
+  "mz_alpha": 1.053,
+  "mz_beta": 0.81,
+  "mz_r2": 0.375
+ },
+ "vrp_by_regime": [
+  {
+   "regime": "Low",
+   "VIX": 11.65,
+   "RV_fwd": 9.54,
+   "VRP": 2.11,
+   "VRP_pos": 0.85,
+   "days": 408
+  },
+  {
+   "regime": "Normal",
+   "VIX": 15.81,
+   "RV_fwd": 14.43,
+   "VRP": 1.38,
+   "VRP_pos": 0.75,
+   "days": 733
+  },
+  {
+   "regime": "High",
+   "VIX": 26.54,
+   "RV_fwd": 22.51,
+   "VRP": 4.04,
+   "VRP_pos": 0.79,
+   "days": 374
+  }
+ ],
+ "regimes": {
+  "kruskal_fwd21_p": 0.0,
+  "levene_fwd21_p": 0.0,
+  "kruskal_daily_p": 0.6566,
+  "levene_daily_p": 0.0,
+  "corr_ret_dlogvix": -0.5638,
+  "beta_dlogvix_on_ret": -2.7165,
+  "mean_dlogvix_on_down_days": 0.0232,
+  "mean_dlogvix_on_up_days": -0.0189,
+  "fwd21_on_vix_slope_pct_per_pt": 0.1818,
+  "fwd21_on_vix_t": 4.2931
+ },
+ "returns_by_regime": [
+  {
+   "regime": "Low",
+   "horizon": "1d",
+   "n": 408,
+   "mean_pct": 0.048,
+   "median_pct": 0.089,
+   "sd_pct": 0.602,
+   "hit_rate": 0.566,
+   "nw_t": 1.516,
+   "p5_pct": -1.0
+  },
+  {
+   "regime": "Low",
+   "horizon": "21d",
+   "n": 408,
+   "mean_pct": 1.055,
+   "median_pct": 1.037,
+   "sd_pct": 3.469,
+   "hit_rate": 0.652,
+   "nw_t": 1.793,
+   "p5_pct": -4.307
+  },
+  {
+   "regime": "Low",
+   "horizon": "63d",
+   "n": 389,
+   "mean_pct": 3.905,
+   "median_pct": 4.778,
+   "sd_pct": 6.95,
+   "hit_rate": 0.751,
+   "nw_t": 2.348,
+   "p5_pct": -8.997
+  },
+  {
+   "regime": "Normal",
+   "horizon": "1d",
+   "n": 737,
+   "mean_pct": -0.018,
+   "median_pct": 0.034,
+   "sd_pct": 0.865,
+   "hit_rate": 0.521,
+   "nw_t": -0.539,
+   "p5_pct": -1.52
+  },
+  {
+   "regime": "Normal",
+   "horizon": "21d",
+   "n": 733,
+   "mean_pct": -0.166,
+   "median_pct": 0.482,
+   "sd_pct": 5.448,
+   "hit_rate": 0.544,
+   "nw_t": -0.233,
+   "p5_pct": -7.453
+  },
+  {
+   "regime": "Normal",
+   "horizon": "63d",
+   "n": 712,
+   "mean_pct": 0.938,
+   "median_pct": 1.444,
+   "sd_pct": 8.465,
+   "hit_rate": 0.576,
+   "nw_t": 0.618,
+   "p5_pct": -14.552
+  },
+  {
+   "regime": "High",
+   "horizon": "1d",
+   "n": 390,
+   "mean_pct": 0.143,
+   "median_pct": 0.218,
+   "sd_pct": 1.858,
+   "hit_rate": 0.564,
+   "nw_t": 1.625,
+   "p5_pct": -2.457
+  },
+  {
+   "regime": "High",
+   "horizon": "21d",
+   "n": 374,
+   "mean_pct": 3.398,
+   "median_pct": 4.104,
+   "sd_pct": 5.98,
+   "hit_rate": 0.759,
+   "nw_t": 3.825,
+   "p5_pct": -4.805
+  },
+  {
+   "regime": "High",
+   "horizon": "63d",
+   "n": 372,
+   "mean_pct": 9.452,
+   "median_pct": 8.682,
+   "sd_pct": 9.333,
+   "hit_rate": 0.844,
+   "nw_t": 3.915,
+   "p5_pct": -7.446
+  }
+ ],
+ "sameday_by_regime": [
+  {
+   "regime": "Low",
+   "mean_pct": 0.106,
+   "sd_pct": 0.565,
+   "ann_vol": 8.969,
+   "worst_pct": -1.416,
+   "days": 408
+  },
+  {
+   "regime": "Normal",
+   "mean_pct": 0.079,
+   "sd_pct": 0.834,
+   "ann_vol": 13.241,
+   "worst_pct": -2.208,
+   "days": 737
+  },
+  {
+   "regime": "High",
+   "mean_pct": -0.093,
+   "sd_pct": 1.895,
+   "ann_vol": 30.082,
+   "worst_pct": -13.904,
+   "days": 391
+  }
+ ],
+ "election": {
+  "base_vix_q1_2024": 14.41,
+  "events": {
+   "2024-05-31": {
+    "vix": 24.600000381469727,
+    "implied_event_sd_pct": 5.77,
+    "vix_only_daily_sd_pct": 1.55
+   },
+   "2024-06-03": {
+    "vix": 20.940000534057617,
+    "implied_event_sd_pct": 4.42,
+    "vix_only_daily_sd_pct": 1.32
+   }
+  },
+  "nifty_ret_4jun_pct": -5.93,
+  "nifty_ret_3jun_pct": 3.25,
+  "nifty_ret_5jun_pct": 3.36,
+  "intraday_low_4jun_pct": -8.52,
+  "vix_path": {
+   "2024-05-27": 23.19,
+   "2024-05-28": 24.2,
+   "2024-05-29": 24.18,
+   "2024-05-30": 24.18,
+   "2024-05-31": 24.6,
+   "2024-06-03": 20.94,
+   "2024-06-04": 26.75,
+   "2024-06-05": 18.89,
+   "2024-06-06": 16.8,
+   "2024-06-07": 16.88
+  },
+  "straddle30_path": {
+   "2024-05-27": 5.3,
+   "2024-05-28": 5.53,
+   "2024-05-29": 5.52,
+   "2024-05-30": 5.52,
+   "2024-05-31": 5.62,
+   "2024-06-03": 4.79,
+   "2024-06-04": 6.11,
+   "2024-06-05": 4.32,
+   "2024-06-06": 3.85,
+   "2024-06-07": 3.86
+  },
+  "put22500_path": {
+   "2024-05-27": 409.3,
+   "2024-05-28": 438.8,
+   "2024-05-29": 488.9,
+   "2024-05-30": 560.8,
+   "2024-05-31": 544.5,
+   "2024-06-03": 216.5,
+   "2024-06-04": 902.5,
+   "2024-06-05": 334.9,
+   "2024-06-06": 218.6,
+   "2024-06-07": 112.4
+  },
+  "normal_jan_apr_2024": {
+   "vix_median": 13.83,
+   "straddle30_median": 3.17,
+   "abs_ret_median": 0.56
+  },
+  "vix_min_apr_2024": 10.2,
+  "vix_change_5jun_pct": -29.4
+ },
+ "event_table": [
+  {
+   "event": "COVID crash (23-Mar-20)",
+   "date": "2020-03-23",
+   "nifty_ret_pct": -12.98,
+   "vix_prev": 67.1,
+   "vix": 71.99,
+   "vix_chg_pct": 7.29,
+   "straddle_prev_pct": 15.28,
+   "straddle_pct": 16.39,
+   "move_vs_implied": 3.29
+  },
+  {
+   "event": "Ukraine invasion (24-Feb-22)",
+   "date": "2022-02-24",
+   "nifty_ret_pct": -4.78,
+   "vix_prev": 24.54,
+   "vix": 31.98,
+   "vix_chg_pct": 30.32,
+   "straddle_prev_pct": 5.6,
+   "straddle_pct": 7.3,
+   "move_vs_implied": 3.17
+  },
+  {
+   "event": "Exit polls (3-Jun-24)",
+   "date": "2024-06-03",
+   "nifty_ret_pct": 3.25,
+   "vix_prev": 24.6,
+   "vix": 20.94,
+   "vix_chg_pct": -14.88,
+   "straddle_prev_pct": 5.62,
+   "straddle_pct": 4.79,
+   "move_vs_implied": 2.07
+  },
+  {
+   "event": "Election result (4-Jun-24)",
+   "date": "2024-06-04",
+   "nifty_ret_pct": -5.93,
+   "vix_prev": 20.94,
+   "vix": 26.75,
+   "vix_chg_pct": 27.75,
+   "straddle_prev_pct": 4.79,
+   "straddle_pct": 6.11,
+   "move_vs_implied": 4.63
+  },
+  {
+   "event": "Yen-carry unwind (5-Aug-24)",
+   "date": "2024-08-05",
+   "nifty_ret_pct": -2.68,
+   "vix_prev": 14.32,
+   "vix": 20.37,
+   "vix_chg_pct": 42.25,
+   "straddle_prev_pct": 3.28,
+   "straddle_pct": 4.66,
+   "move_vs_implied": 3.01
+  },
+  {
+   "event": "US tariff crash (7-Apr-25)",
+   "date": "2025-04-07",
+   "nifty_ret_pct": -3.24,
+   "vix_prev": 13.76,
+   "vix": 22.79,
+   "vix_chg_pct": 65.63,
+   "straddle_prev_pct": 3.16,
+   "straddle_pct": 5.21,
+   "move_vs_implied": 3.8
+  },
+  {
+   "event": "Normal day (median, excl. top-10% moves)",
+   "date": "",
+   "nifty_ret_pct": 0.47,
+   "vix_prev": 14.71,
+   "vix": 14.71,
+   "vix_chg_pct": 2.42,
+   "straddle_prev_pct": 3.37,
+   "straddle_pct": 3.37,
+   "move_vs_implied": 0.49
+  }
+ ],
+ "vix_jump_days": {
+  "n": 20,
+  "mean_nifty_ret_pct": -3.221666547651294,
+  "mean_straddle_jump_pct_of_spot": 1.2828486695682586,
+  "mean_vix_jump_pct": 27.837382498022713,
+  "other_days_mean_abs_ret": 0.714874006083512
+ },
+ "backtest_period": {
+  "start": "2020-01-02",
+  "end": "2026-04-13",
+  "years": 6.28
+ },
+ "performance": [
+  {
+   "strategy": "Unhedged",
+   "final": 1.941,
+   "CAGR": 11.144,
+   "vol": 18.279,
+   "sharpe": 0.254,
+   "sortino": 0.295,
+   "maxDD": -38.44,
+   "calmar": 0.29,
+   "worst_day": -12.98,
+   "worst_21d": -37.24,
+   "premium_paid_pa": 0.0,
+   "recovered_pa": 0.0,
+   "net_hedge_cost_pa": 0.0,
+   "share_time_hedged": 0.0
+  },
+  {
+   "strategy": "Always 1M 95% put",
+   "final": 1.649,
+   "CAGR": 8.3,
+   "vol": 13.218,
+   "sharpe": 0.136,
+   "sortino": 0.195,
+   "maxDD": -19.628,
+   "calmar": 0.423,
+   "worst_day": -5.791,
+   "worst_21d": -13.635,
+   "premium_paid_pa": 7.49,
+   "recovered_pa": 4.462,
+   "net_hedge_cost_pa": 3.028,
+   "share_time_hedged": 99.479
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "final": 1.555,
+   "CAGR": 7.294,
+   "vol": 14.976,
+   "sharpe": 0.053,
+   "sortino": 0.068,
+   "maxDD": -30.228,
+   "calmar": 0.241,
+   "worst_day": -10.176,
+   "worst_21d": -28.532,
+   "premium_paid_pa": 9.538,
+   "recovered_pa": 5.89,
+   "net_hedge_cost_pa": 3.647,
+   "share_time_hedged": 99.479
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "final": 1.462,
+   "CAGR": 6.25,
+   "vol": 11.716,
+   "sharpe": -0.021,
+   "sortino": -0.031,
+   "maxDD": -17.905,
+   "calmar": 0.349,
+   "worst_day": -4.55,
+   "worst_21d": -12.366,
+   "premium_paid_pa": 20.177,
+   "recovered_pa": 15.324,
+   "net_hedge_cost_pa": 4.853,
+   "share_time_hedged": 96.94
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "final": 2.709,
+   "CAGR": 17.214,
+   "vol": 14.565,
+   "sharpe": 0.736,
+   "sortino": 1.017,
+   "maxDD": -17.23,
+   "calmar": 0.999,
+   "worst_day": -5.744,
+   "worst_21d": -11.113,
+   "premium_paid_pa": 2.91,
+   "recovered_pa": 7.294,
+   "net_hedge_cost_pa": -4.384,
+   "share_time_hedged": 46.549
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "final": 2.259,
+   "CAGR": 13.871,
+   "vol": 15.395,
+   "sharpe": 0.479,
+   "sortino": 0.631,
+   "maxDD": -21.951,
+   "calmar": 0.632,
+   "worst_day": -5.744,
+   "worst_21d": -19.484,
+   "premium_paid_pa": 2.91,
+   "recovered_pa": 5.09,
+   "net_hedge_cost_pa": -2.18,
+   "share_time_hedged": 45.378
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "final": 1.921,
+   "CAGR": 10.972,
+   "vol": 17.682,
+   "sharpe": 0.253,
+   "sortino": 0.29,
+   "maxDD": -35.939,
+   "calmar": 0.305,
+   "worst_day": -12.98,
+   "worst_21d": -34.567,
+   "premium_paid_pa": 2.91,
+   "recovered_pa": 2.717,
+   "net_hedge_cost_pa": 0.193,
+   "share_time_hedged": 42.578
+  }
+ ],
+ "cost_by_regime": [
+  {
+   "strategy": "Always 1M 95% put",
+   "basis": "open_regime",
+   "regime": "Low",
+   "paid": 5.14,
+   "received": 0.8,
+   "net": -4.34,
+   "n_trades": 23
+  },
+  {
+   "strategy": "Always 1M 95% put",
+   "basis": "open_regime",
+   "regime": "Normal",
+   "paid": 15.74,
+   "received": 4.85,
+   "net": -10.89,
+   "n_trades": 33
+  },
+  {
+   "strategy": "Always 1M 95% put",
+   "basis": "open_regime",
+   "regime": "High",
+   "paid": 26.14,
+   "received": 22.36,
+   "net": -3.78,
+   "n_trades": 19
+  },
+  {
+   "strategy": "Always 1M 95% put",
+   "basis": "regime",
+   "regime": "Low",
+   "paid": 5.14,
+   "received": 0.0,
+   "net": -5.14,
+   "n_trades": 23
+  },
+  {
+   "strategy": "Always 1M 95% put",
+   "basis": "regime",
+   "regime": "Normal",
+   "paid": 15.74,
+   "received": 1.17,
+   "net": -14.58,
+   "n_trades": 33
+  },
+  {
+   "strategy": "Always 1M 95% put",
+   "basis": "regime",
+   "regime": "High",
+   "paid": 26.14,
+   "received": 26.85,
+   "net": 0.71,
+   "n_trades": 19
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "basis": "open_regime",
+   "regime": "Low",
+   "paid": 5.14,
+   "received": 0.9,
+   "net": -4.24,
+   "n_trades": 46
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "basis": "open_regime",
+   "regime": "Normal",
+   "paid": 15.74,
+   "received": 5.65,
+   "net": -10.09,
+   "n_trades": 66
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "basis": "open_regime",
+   "regime": "High",
+   "paid": 39.0,
+   "received": 30.43,
+   "net": -8.57,
+   "n_trades": 38
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "basis": "regime",
+   "regime": "Low",
+   "paid": 5.14,
+   "received": 0.1,
+   "net": -5.04,
+   "n_trades": 46
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "basis": "regime",
+   "regime": "Normal",
+   "paid": 15.74,
+   "received": 1.97,
+   "net": -13.78,
+   "n_trades": 66
+  },
+  {
+   "strategy": "Always 1M 95/85 put spread",
+   "basis": "regime",
+   "regime": "High",
+   "paid": 39.0,
+   "received": 34.91,
+   "net": -4.08,
+   "n_trades": 38
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "basis": "open_regime",
+   "regime": "Low",
+   "paid": 19.29,
+   "received": 13.73,
+   "net": -5.56,
+   "n_trades": 23
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "basis": "open_regime",
+   "regime": "Normal",
+   "paid": 45.41,
+   "received": 37.73,
+   "net": -7.68,
+   "n_trades": 31
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "basis": "open_regime",
+   "regime": "High",
+   "paid": 61.96,
+   "received": 44.73,
+   "net": -17.23,
+   "n_trades": 19
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "basis": "regime",
+   "regime": "Low",
+   "paid": 19.29,
+   "received": 8.91,
+   "net": -10.38,
+   "n_trades": 23
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "basis": "regime",
+   "regime": "Normal",
+   "paid": 45.41,
+   "received": 29.63,
+   "net": -15.78,
+   "n_trades": 31
+  },
+  {
+   "strategy": "Always 3M 95% put, rolled monthly",
+   "basis": "regime",
+   "regime": "High",
+   "paid": 61.96,
+   "received": 57.66,
+   "net": -4.3,
+   "n_trades": 19
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "basis": "open_regime",
+   "regime": "Low",
+   "paid": 18.27,
+   "received": 45.79,
+   "net": 27.52,
+   "n_trades": 22
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "basis": "open_regime",
+   "regime": "Normal",
+   "paid": 0.0,
+   "received": 0.0,
+   "net": 0.0,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "basis": "open_regime",
+   "regime": "High",
+   "paid": 0.0,
+   "received": 0.0,
+   "net": 0.0,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "basis": "regime",
+   "regime": "Low",
+   "paid": 18.27,
+   "received": 5.87,
+   "net": -12.4,
+   "n_trades": 22
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "basis": "regime",
+   "regime": "Normal",
+   "paid": -0.0,
+   "received": 1.28,
+   "net": 1.28,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, hold",
+   "basis": "regime",
+   "regime": "High",
+   "paid": -0.0,
+   "received": 38.63,
+   "net": 38.63,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "basis": "open_regime",
+   "regime": "Low",
+   "paid": 18.27,
+   "received": 31.96,
+   "net": 13.69,
+   "n_trades": 22
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "basis": "open_regime",
+   "regime": "Normal",
+   "paid": 0.0,
+   "received": 0.0,
+   "net": 0.0,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "basis": "open_regime",
+   "regime": "High",
+   "paid": 0.0,
+   "received": 0.0,
+   "net": 0.0,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "basis": "regime",
+   "regime": "Low",
+   "paid": 18.27,
+   "received": 5.87,
+   "net": -12.4,
+   "n_trades": 22
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "basis": "regime",
+   "regime": "Normal",
+   "paid": -0.0,
+   "received": 1.49,
+   "net": 1.49,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put + hybrid monetisation (proposed)",
+   "basis": "regime",
+   "regime": "High",
+   "paid": -0.0,
+   "received": 24.59,
+   "net": 24.59,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "basis": "open_regime",
+   "regime": "Low",
+   "paid": 18.27,
+   "received": 17.06,
+   "net": -1.21,
+   "n_trades": 22
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "basis": "open_regime",
+   "regime": "Normal",
+   "paid": 0.0,
+   "received": 0.0,
+   "net": 0.0,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "basis": "open_regime",
+   "regime": "High",
+   "paid": 0.0,
+   "received": 0.0,
+   "net": 0.0,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "basis": "regime",
+   "regime": "Low",
+   "paid": 18.27,
+   "received": 5.87,
+   "net": -12.4,
+   "n_trades": 22
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "basis": "regime",
+   "regime": "Normal",
+   "paid": -0.0,
+   "received": 1.28,
+   "net": 1.28,
+   "n_trades": 0
+  },
+  {
+   "strategy": "VIX-timed 3M put, sell all at VIX 22",
+   "basis": "regime",
+   "regime": "High",
+   "paid": -0.0,
+   "received": 9.9,
+   "net": 9.9,
+   "n_trades": 0
+  }
+ ],
+ "excess_by_regime_cum": {
+  "Always 1M 95% put": {
+   "Low": -2.33,
+   "Normal": -4.75,
+   "High": -14.16
+  },
+  "Always 1M 95/85 put spread": {
+   "Low": -2.29,
+   "Normal": -4.63,
+   "High": -18.64
+  },
+  "Always 3M 95% put, rolled monthly": {
+   "Low": -4.48,
+   "Normal": -4.87,
+   "High": -25.03
+  },
+  "VIX-timed 3M put, hold": {
+   "Low": -3.46,
+   "Normal": 7.31,
+   "High": 25.72
+  },
+  "VIX-timed 3M put + hybrid monetisation (proposed)": {
+   "Low": -3.46,
+   "Normal": 5.83,
+   "High": 9.78
+  },
+  "VIX-timed 3M put, sell all at VIX 22": {
+   "Low": -3.46,
+   "Normal": 3.91,
+   "High": -2.09
+  }
+ },
+ "excess_by_regime_pa": {
+  "Always 1M 95% put": {
+   "Low": -1.44,
+   "Normal": -1.63,
+   "High": -9.15
+  },
+  "Always 1M 95/85 put spread": {
+   "Low": -1.41,
+   "Normal": -1.58,
+   "High": -12.04
+  },
+  "Always 3M 95% put, rolled monthly": {
+   "Low": -2.77,
+   "Normal": -1.67,
+   "High": -16.17
+  },
+  "VIX-timed 3M put, hold": {
+   "Low": -2.14,
+   "Normal": 2.5,
+   "High": 16.62
+  },
+  "VIX-timed 3M put + hybrid monetisation (proposed)": {
+   "Low": -2.14,
+   "Normal": 1.99,
+   "High": 6.32
+  },
+  "VIX-timed 3M put, sell all at VIX 22": {
+   "Low": -2.14,
+   "Normal": 1.34,
+   "High": -1.35
+  }
+ },
+ "episodes": {
+  "COVID crash (17-Jan to 23-Mar-20)": {
+   "Unhedged": -38.39,
+   "Always 1M 95% put": -15.46,
+   "Always 1M 95/85 put spread": -30.16,
+   "Always 3M 95% put, rolled monthly": -12.41,
+   "VIX-timed 3M put, hold": -6.33,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": -21.11,
+   "VIX-timed 3M put, sell all at VIX 22": -35.89
+  },
+  "2022 war/rates (17-Jan to 17-Jun-22)": {
+   "Unhedged": -16.47,
+   "Always 1M 95% put": -17.13,
+   "Always 1M 95/85 put spread": -16.82,
+   "Always 3M 95% put, rolled monthly": -13.88,
+   "VIX-timed 3M put, hold": -16.47,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": -16.47,
+   "VIX-timed 3M put, sell all at VIX 22": -16.47
+  },
+  "Election result day (3 to 4-Jun-24)": {
+   "Unhedged": -5.93,
+   "Always 1M 95% put": -3.59,
+   "Always 1M 95/85 put spread": -3.97,
+   "Always 3M 95% put, rolled monthly": -3.13,
+   "VIX-timed 3M put, hold": -4.54,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": -5.24,
+   "VIX-timed 3M put, sell all at VIX 22": -5.93
+  },
+  "Yen-carry unwind (1 to 5-Aug-24)": {
+   "Unhedged": -3.82,
+   "Always 1M 95% put": -2.55,
+   "Always 1M 95/85 put spread": -2.67,
+   "Always 3M 95% put, rolled monthly": -1.86,
+   "VIX-timed 3M put, hold": -1.86,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": -1.86,
+   "VIX-timed 3M put, sell all at VIX 22": -1.86
+  },
+  "Sep-24 to Mar-25 correction": {
+   "Unhedged": -15.77,
+   "Always 1M 95% put": -16.29,
+   "Always 1M 95/85 put spread": -16.24,
+   "Always 3M 95% put, rolled monthly": -14.66,
+   "VIX-timed 3M put, hold": -15.41,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": -15.41,
+   "VIX-timed 3M put, sell all at VIX 22": -15.41
+  },
+  "Apr-25 tariff shock (28-Mar to 7-Apr)": {
+   "Unhedged": -5.77,
+   "Always 1M 95% put": -4.28,
+   "Always 1M 95/85 put spread": -4.44,
+   "Always 3M 95% put, rolled monthly": -3.43,
+   "VIX-timed 3M put, hold": -5.77,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": -5.77,
+   "VIX-timed 3M put, sell all at VIX 22": -5.77
+  },
+  "Full period": {
+   "Unhedged": 94.12,
+   "Always 1M 95% put": 64.97,
+   "Always 1M 95/85 put spread": 55.58,
+   "Always 3M 95% put, rolled monthly": 46.32,
+   "VIX-timed 3M put, hold": 171.05,
+   "VIX-timed 3M put + hybrid monetisation (proposed)": 126.03,
+   "VIX-timed 3M put, sell all at VIX 22": 92.24
+  }
+ },
+ "proposed_trades": {
+  "n": 22,
+  "winners": 5,
+  "monetised": 3,
+  "best": [
+   {
+    "trade_id": 14,
+    "open_date": "2024-10-01",
+    "open_vix": 11.99,
+    "cash": 0.00802,
+    "exit": "expiry"
+   },
+   {
+    "trade_id": 0,
+    "open_date": "2020-01-02",
+    "open_vix": 11.49,
+    "cash": 0.13884,
+    "exit": "monetise_1,monetise_trail"
+   },
+   {
+    "trade_id": 21,
+    "open_date": "2026-01-02",
+    "open_vix": 9.45,
+    "cash": 0.14024,
+    "exit": "expiry,monetise_1"
+   }
+  ]
+ },
+ "proposed_monetisations": [
+  {
+   "date": "2020-02-28",
+   "action": "monetise_1",
+   "K": 11650,
+   "price": 545.84,
+   "vix": 23.24
+  },
+  {
+   "date": "2020-03-31",
+   "action": "monetise_trail",
+   "K": 11650,
+   "price": 3050.48,
+   "vix": 64.41
+  },
+  {
+   "date": "2024-05-27",
+   "action": "monetise_1",
+   "K": 21350,
+   "price": 177.0,
+   "vix": 23.19
+  },
+  {
+   "date": "2024-06-05",
+   "action": "monetise_trail",
+   "K": 21350,
+   "price": 94.62,
+   "vix": 18.89
+  },
+  {
+   "date": "2026-03-09",
+   "action": "monetise_1",
+   "K": 25000,
+   "price": 1113.25,
+   "vix": 23.36
+  }
+ ],
+ "sensitivity_thresholds": [
+  {
+   "buy_below": "12",
+   "spike1": 20,
+   "CAGR": 14.57,
+   "maxDD": -21.95,
+   "sharpe": 0.52,
+   "calmar": 0.66
+  },
+  {
+   "buy_below": "12",
+   "spike1": 22,
+   "CAGR": 14.69,
+   "maxDD": -21.95,
+   "sharpe": 0.52,
+   "calmar": 0.67
+  },
+  {
+   "buy_below": "12",
+   "spike1": 25,
+   "CAGR": 15.26,
+   "maxDD": -21.76,
+   "sharpe": 0.56,
+   "calmar": 0.7
+  },
+  {
+   "buy_below": "12",
+   "spike1": 30,
+   "CAGR": 15.66,
+   "maxDD": -19.82,
+   "sharpe": 0.59,
+   "calmar": 0.79
+  },
+  {
+   "buy_below": "13",
+   "spike1": 20,
+   "CAGR": 14.23,
+   "maxDD": -21.95,
+   "sharpe": 0.5,
+   "calmar": 0.65
+  },
+  {
+   "buy_below": "13",
+   "spike1": 22,
+   "CAGR": 13.87,
+   "maxDD": -21.95,
+   "sharpe": 0.48,
+   "calmar": 0.63
+  },
+  {
+   "buy_below": "13",
+   "spike1": 25,
+   "CAGR": 14.53,
+   "maxDD": -21.76,
+   "sharpe": 0.52,
+   "calmar": 0.67
+  },
+  {
+   "buy_below": "13",
+   "spike1": 30,
+   "CAGR": 14.72,
+   "maxDD": -19.82,
+   "sharpe": 0.54,
+   "calmar": 0.74
+  },
+  {
+   "buy_below": "14",
+   "spike1": 20,
+   "CAGR": 13.93,
+   "maxDD": -21.95,
+   "sharpe": 0.48,
+   "calmar": 0.63
+  },
+  {
+   "buy_below": "14",
+   "spike1": 22,
+   "CAGR": 13.46,
+   "maxDD": -21.95,
+   "sharpe": 0.45,
+   "calmar": 0.61
+  },
+  {
+   "buy_below": "14",
+   "spike1": 25,
+   "CAGR": 13.23,
+   "maxDD": -21.76,
+   "sharpe": 0.44,
+   "calmar": 0.61
+  },
+  {
+   "buy_below": "14",
+   "spike1": 30,
+   "CAGR": 13.3,
+   "maxDD": -19.82,
+   "sharpe": 0.45,
+   "calmar": 0.67
+  },
+  {
+   "buy_below": "15",
+   "spike1": 20,
+   "CAGR": 12.81,
+   "maxDD": -21.95,
+   "sharpe": 0.41,
+   "calmar": 0.58
+  },
+  {
+   "buy_below": "15",
+   "spike1": 22,
+   "CAGR": 12.42,
+   "maxDD": -21.95,
+   "sharpe": 0.39,
+   "calmar": 0.57
+  },
+  {
+   "buy_below": "15",
+   "spike1": 25,
+   "CAGR": 12.2,
+   "maxDD": -21.76,
+   "sharpe": 0.37,
+   "calmar": 0.56
+  },
+  {
+   "buy_below": "15",
+   "spike1": 30,
+   "CAGR": 12.26,
+   "maxDD": -19.82,
+   "sharpe": 0.38,
+   "calmar": 0.62
+  },
+  {
+   "buy_below": "16",
+   "spike1": 20,
+   "CAGR": 12.21,
+   "maxDD": -24.08,
+   "sharpe": 0.37,
+   "calmar": 0.51
+  },
+  {
+   "buy_below": "16",
+   "spike1": 22,
+   "CAGR": 11.83,
+   "maxDD": -24.08,
+   "sharpe": 0.34,
+   "calmar": 0.49
+  },
+  {
+   "buy_below": "16",
+   "spike1": 25,
+   "CAGR": 11.6,
+   "maxDD": -23.93,
+   "sharpe": 0.33,
+   "calmar": 0.48
+  },
+  {
+   "buy_below": "16",
+   "spike1": 30,
+   "CAGR": 11.57,
+   "maxDD": -22.45,
+   "sharpe": 0.33,
+   "calmar": 0.52
+  },
+  {
+   "buy_below": "always",
+   "spike1": 20,
+   "CAGR": 8.48,
+   "maxDD": -25.47,
+   "sharpe": 0.14,
+   "calmar": 0.33
+  },
+  {
+   "buy_below": "always",
+   "spike1": 22,
+   "CAGR": 7.86,
+   "maxDD": -25.47,
+   "sharpe": 0.1,
+   "calmar": 0.31
+  },
+  {
+   "buy_below": "always",
+   "spike1": 25,
+   "CAGR": 6.88,
+   "maxDD": -25.04,
+   "sharpe": 0.03,
+   "calmar": 0.27
+  },
+  {
+   "buy_below": "always",
+   "spike1": 30,
+   "CAGR": 5.9,
+   "maxDD": -24.12,
+   "sharpe": -0.05,
+   "calmar": 0.24
+  }
+ ],
+ "sensitivity_pricing": [
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 0.0,
+   "half_spread": 0.0,
+   "CAGR": 11.09,
+   "maxDD": -17.89
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 0.0,
+   "half_spread": 0.0,
+   "CAGR": 15.06,
+   "maxDD": -21.69
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 0.0,
+   "half_spread": 0.5,
+   "CAGR": 10.73,
+   "maxDD": -18.15
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 0.0,
+   "half_spread": 0.5,
+   "CAGR": 14.77,
+   "maxDD": -21.7
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 0.0,
+   "half_spread": 1.0,
+   "CAGR": 10.36,
+   "maxDD": -18.42
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 0.0,
+   "half_spread": 1.0,
+   "CAGR": 14.47,
+   "maxDD": -21.71
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.0,
+   "CAGR": 8.73,
+   "maxDD": -19.34
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.0,
+   "CAGR": 14.25,
+   "maxDD": -21.94
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 8.3,
+   "maxDD": -19.63
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 13.87,
+   "maxDD": -21.95
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 0.6,
+   "half_spread": 1.0,
+   "CAGR": 7.86,
+   "maxDD": -19.92
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 0.6,
+   "half_spread": 1.0,
+   "CAGR": 13.49,
+   "maxDD": -21.96
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 1.0,
+   "half_spread": 0.0,
+   "CAGR": 6.94,
+   "maxDD": -20.39
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 1.0,
+   "half_spread": 0.0,
+   "CAGR": 13.75,
+   "maxDD": -22.13
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 1.0,
+   "half_spread": 0.5,
+   "CAGR": 6.47,
+   "maxDD": -20.69
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 1.0,
+   "half_spread": 0.5,
+   "CAGR": 13.33,
+   "maxDD": -22.14
+  },
+  {
+   "strategy": "always_put",
+   "skew_per_pct": 1.0,
+   "half_spread": 1.0,
+   "CAGR": 6.0,
+   "maxDD": -21.0
+  },
+  {
+   "strategy": "timed_hybrid",
+   "skew_per_pct": 1.0,
+   "half_spread": 1.0,
+   "CAGR": 12.91,
+   "maxDD": -22.15
+  },
+  {
+   "strategy": "proposed, tenor 1M",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 10.44,
+   "maxDD": -38.51
+  },
+  {
+   "strategy": "proposed, tenor 2M",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 10.45,
+   "maxDD": -36.07
+  },
+  {
+   "strategy": "proposed, tenor 3M",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 13.87,
+   "maxDD": -21.95
+  },
+  {
+   "strategy": "proposed, tenor 6M",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 13.62,
+   "maxDD": -21.38
+  },
+  {
+   "strategy": "proposed, strike 90%",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 13.04,
+   "maxDD": -24.9
+  },
+  {
+   "strategy": "proposed, strike 95%",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 13.87,
+   "maxDD": -21.95
+  },
+  {
+   "strategy": "proposed, strike 100%",
+   "skew_per_pct": 0.6,
+   "half_spread": 0.5,
+   "CAGR": 15.31,
+   "maxDD": -18.63
+  }
+ ],
+ "rule_by_tenor": [
+  {
+   "structure": "2M rolled",
+   "rule": "Hold to expiry",
+   "CAGR": 10.5,
+   "maxDD": -35.86,
+   "sharpe": 0.22,
+   "covid": -35.8,
+   "CAGR_ex_covid": 13.83,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "2M rolled",
+   "rule": "Sell all at VIX 22",
+   "CAGR": 10.39,
+   "maxDD": -36.27,
+   "sharpe": 0.22,
+   "covid": -36.21,
+   "CAGR_ex_covid": 13.84,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "2M rolled",
+   "rule": "Ladder 22 / 30",
+   "CAGR": 10.45,
+   "maxDD": -36.07,
+   "sharpe": 0.22,
+   "covid": -36.01,
+   "CAGR_ex_covid": 13.84,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "2M rolled",
+   "rule": "Trailing (fade 20%)",
+   "CAGR": 10.5,
+   "maxDD": -35.86,
+   "sharpe": 0.22,
+   "covid": -35.8,
+   "CAGR_ex_covid": 13.83,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "2M rolled",
+   "rule": "Hybrid (proposed)",
+   "CAGR": 10.45,
+   "maxDD": -36.07,
+   "sharpe": 0.22,
+   "covid": -36.01,
+   "CAGR_ex_covid": 13.84,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M rolled",
+   "rule": "Hold to expiry",
+   "CAGR": 17.21,
+   "maxDD": -17.23,
+   "sharpe": 0.74,
+   "covid": -6.33,
+   "CAGR_ex_covid": 15.25,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M rolled",
+   "rule": "Sell all at VIX 22",
+   "CAGR": 10.97,
+   "maxDD": -35.94,
+   "sharpe": 0.25,
+   "covid": -35.89,
+   "CAGR_ex_covid": 14.36,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M rolled",
+   "rule": "Ladder 22 / 30",
+   "CAGR": 11.92,
+   "maxDD": -33.93,
+   "sharpe": 0.31,
+   "covid": -33.88,
+   "CAGR_ex_covid": 14.81,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M rolled",
+   "rule": "Trailing (fade 20%)",
+   "CAGR": 16.53,
+   "maxDD": -17.23,
+   "sharpe": 0.68,
+   "covid": -6.33,
+   "CAGR_ex_covid": 15.33,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M rolled",
+   "rule": "Hybrid (proposed)",
+   "CAGR": 13.87,
+   "maxDD": -21.95,
+   "sharpe": 0.48,
+   "covid": -21.11,
+   "CAGR_ex_covid": 14.85,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M staggered thirds",
+   "rule": "Hold to expiry",
+   "CAGR": 13.04,
+   "maxDD": -27.76,
+   "sharpe": 0.4,
+   "covid": -27.7,
+   "CAGR_ex_covid": 14.96,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M staggered thirds",
+   "rule": "Sell all at VIX 22",
+   "CAGR": 10.75,
+   "maxDD": -37.61,
+   "sharpe": 0.24,
+   "covid": -37.56,
+   "CAGR_ex_covid": 14.65,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M staggered thirds",
+   "rule": "Ladder 22 / 30",
+   "CAGR": 11.08,
+   "maxDD": -36.94,
+   "sharpe": 0.26,
+   "covid": -36.89,
+   "CAGR_ex_covid": 14.81,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M staggered thirds",
+   "rule": "Trailing (fade 20%)",
+   "CAGR": 12.76,
+   "maxDD": -27.76,
+   "sharpe": 0.38,
+   "covid": -27.7,
+   "CAGR_ex_covid": 14.99,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "3M staggered thirds",
+   "rule": "Hybrid (proposed)",
+   "CAGR": 11.77,
+   "maxDD": -32.68,
+   "sharpe": 0.31,
+   "covid": -32.63,
+   "CAGR_ex_covid": 14.82,
+   "maxDD_ex_covid": -17.23
+  },
+  {
+   "structure": "6M staggered sixths",
+   "rule": "Hold to expiry",
+   "CAGR": 11.01,
+   "maxDD": -33.07,
+   "sharpe": 0.27,
+   "covid": -33.02,
+   "CAGR_ex_covid": 14.87,
+   "maxDD_ex_covid": -17.32
+  },
+  {
+   "structure": "6M staggered sixths",
+   "rule": "Sell all at VIX 22",
+   "CAGR": 10.86,
+   "maxDD": -37.94,
+   "sharpe": 0.24,
+   "covid": -37.89,
+   "CAGR_ex_covid": 14.87,
+   "maxDD_ex_covid": -17.32
+  },
+  {
+   "structure": "6M staggered sixths",
+   "rule": "Ladder 22 / 30",
+   "CAGR": 10.95,
+   "maxDD": -37.61,
+   "sharpe": 0.25,
+   "covid": -37.56,
+   "CAGR_ex_covid": 14.87,
+   "maxDD_ex_covid": -17.32
+  },
+  {
+   "structure": "6M staggered sixths",
+   "rule": "Trailing (fade 20%)",
+   "CAGR": 11.79,
+   "maxDD": -33.07,
+   "sharpe": 0.31,
+   "covid": -33.02,
+   "CAGR_ex_covid": 14.94,
+   "maxDD_ex_covid": -17.32
+  },
+  {
+   "structure": "6M staggered sixths",
+   "rule": "Hybrid (proposed)",
+   "CAGR": 11.33,
+   "maxDD": -35.51,
+   "sharpe": 0.27,
+   "covid": -35.46,
+   "CAGR_ex_covid": 14.91,
+   "maxDD_ex_covid": -17.32
+  }
+ ],
+ "ex_covid_performance": {
+  "Unhedged": {
+   "final": 1.941,
+   "CAGR": 15.371,
+   "vol": 14.565,
+   "sharpe": 0.609,
+   "sortino": 0.827,
+   "maxDD": -17.23,
+   "calmar": 0.892,
+   "worst_day": -5.929,
+   "worst_21d": -12.366
+  },
+  "Always 1M 95% put": {
+   "final": 1.649,
+   "CAGR": 9.563,
+   "vol": 12.161,
+   "sharpe": 0.252,
+   "sortino": 0.375,
+   "maxDD": -19.628,
+   "calmar": 0.487,
+   "worst_day": -3.756,
+   "worst_21d": -8.951
+  },
+  "Always 1M 95/85 put spread": {
+   "final": 1.555,
+   "CAGR": 10.069,
+   "vol": 12.279,
+   "sharpe": 0.291,
+   "sortino": 0.429,
+   "maxDD": -19.147,
+   "calmar": 0.526,
+   "worst_day": -3.973,
+   "worst_21d": -9.148
+  },
+  "Always 3M 95% put, rolled monthly": {
+   "final": 1.462,
+   "CAGR": 7.608,
+   "vol": 10.797,
+   "sharpe": 0.103,
+   "sortino": 0.153,
+   "maxDD": -17.905,
+   "calmar": 0.425,
+   "worst_day": -3.262,
+   "worst_21d": -12.366
+  },
+  "VIX-timed 3M put, hold": {
+   "final": 2.709,
+   "CAGR": 15.249,
+   "vol": 13.445,
+   "sharpe": 0.651,
+   "sortino": 0.885,
+   "maxDD": -17.23,
+   "calmar": 0.885,
+   "worst_day": -4.778,
+   "worst_21d": -11.113
+  },
+  "VIX-timed 3M put + hybrid monetisation (proposed)": {
+   "final": 2.259,
+   "CAGR": 14.854,
+   "vol": 13.61,
+   "sharpe": 0.614,
+   "sortino": 0.834,
+   "maxDD": -17.23,
+   "calmar": 0.862,
+   "worst_day": -5.236,
+   "worst_21d": -11.113
+  },
+  "VIX-timed 3M put, sell all at VIX 22": {
+   "final": 1.921,
+   "CAGR": 14.364,
+   "vol": 13.93,
+   "sharpe": 0.565,
+   "sortino": 0.752,
+   "maxDD": -17.23,
+   "calmar": 0.834,
+   "worst_day": -5.929,
+   "worst_21d": -11.113
+  }
+ }
+}
