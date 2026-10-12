@@ -1,0 +1,37 @@
+strategy,basis,regime,paid,received,net,n_trades
+Always 1M 95% put,open_regime,Low,5.137,0.801,-4.336,23
+Always 1M 95% put,open_regime,Normal,15.743,4.853,-10.89,33
+Always 1M 95% put,open_regime,High,26.142,22.361,-3.781,19
+Always 1M 95% put,regime,Low,5.137,0.0,-5.137,23
+Always 1M 95% put,regime,Normal,15.743,1.165,-14.578,33
+Always 1M 95% put,regime,High,26.142,26.85,0.707,19
+Always 1M 95/85 put spread,open_regime,Low,5.137,0.898,-4.238,46
+Always 1M 95/85 put spread,open_regime,Normal,15.744,5.654,-10.089,66
+Always 1M 95/85 put spread,open_regime,High,38.996,30.426,-8.57,38
+Always 1M 95/85 put spread,regime,Low,5.137,0.098,-5.039,46
+Always 1M 95/85 put spread,regime,Normal,15.744,1.968,-13.775,66
+Always 1M 95/85 put spread,regime,High,38.996,34.913,-4.083,38
+"Always 3M 95% put, rolled monthly",open_regime,Low,19.288,13.732,-5.556,23
+"Always 3M 95% put, rolled monthly",open_regime,Normal,45.414,37.735,-7.679,31
+"Always 3M 95% put, rolled monthly",open_regime,High,61.965,44.734,-17.23,19
+"Always 3M 95% put, rolled monthly",regime,Low,19.288,8.906,-10.382,23
+"Always 3M 95% put, rolled monthly",regime,Normal,45.414,29.631,-15.783,31
+"Always 3M 95% put, rolled monthly",regime,High,61.965,57.665,-4.3,19
+"VIX-timed 3M put, hold",open_regime,Low,18.27,45.791,27.52,22
+"VIX-timed 3M put, hold",open_regime,Normal,0.0,0.0,0.0,0
+"VIX-timed 3M put, hold",open_regime,High,0.0,0.0,0.0,0
+"VIX-timed 3M put, hold",regime,Low,18.27,5.874,-12.396,22
+"VIX-timed 3M put, hold",regime,Normal,-0.0,1.282,1.282,0
+"VIX-timed 3M put, hold",regime,High,-0.0,38.634,38.634,0
+VIX-timed 3M put + hybrid monetisation (proposed),open_regime,Low,18.27,31.956,13.686,22
+VIX-timed 3M put + hybrid monetisation (proposed),open_regime,Normal,0.0,0.0,0.0,0
+VIX-timed 3M put + hybrid monetisation (proposed),open_regime,High,0.0,0.0,0.0,0
+VIX-timed 3M put + hybrid monetisation (proposed),regime,Low,18.27,5.874,-12.396,22
+VIX-timed 3M put + hybrid monetisation (proposed),regime,Normal,-0.0,1.491,1.491,0
+VIX-timed 3M put + hybrid monetisation (proposed),regime,High,-0.0,24.59,24.59,0
+"VIX-timed 3M put, sell all at VIX 22",open_regime,Low,18.27,17.058,-1.212,22
+"VIX-timed 3M put, sell all at VIX 22",open_regime,Normal,0.0,0.0,0.0,0
+"VIX-timed 3M put, sell all at VIX 22",open_regime,High,0.0,0.0,0.0,0
+"VIX-timed 3M put, sell all at VIX 22",regime,Low,18.27,5.874,-12.396,22
+"VIX-timed 3M put, sell all at VIX 22",regime,Normal,-0.0,1.282,1.282,0
+"VIX-timed 3M put, sell all at VIX 22",regime,High,-0.0,9.902,9.902,0

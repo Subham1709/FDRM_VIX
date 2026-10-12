@@ -1,0 +1,4 @@
+regime_prev,Always 1M 95% put,Always 1M 95/85 put spread,"Always 3M 95% put, rolled monthly","VIX-timed 3M put, hold",VIX-timed 3M put + hybrid monetisation (proposed),"VIX-timed 3M put, sell all at VIX 22"
+Low,-2.33,-2.29,-4.48,-3.46,-3.46,-3.46
+Normal,-4.75,-4.63,-4.87,7.31,5.83,3.91
+High,-14.16,-18.64,-25.03,25.72,9.78,-2.09
