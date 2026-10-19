@@ -1,0 +1,4 @@
+# Only what the web app needs (the analysis script's list is in ../requirements.txt).
+streamlit==1.66.0
+pandas==3.0.6
+altair==6.3.0
