@@ -1,6 +1,8 @@
 # Volatility Dynamics and the Fear Index: Nifty 50, India VIX and a VIX-timed put hedge
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subham1709/FDRM_VIX/blob/main/fdrm_vix_analysis_colab.ipynb)
+[![Live app](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://subham-fdrm-vix.streamlit.app) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subham1709/FDRM_VIX/blob/main/fdrm_vix_analysis_colab.ipynb)
+
+**Live app:** https://subham-fdrm-vix.streamlit.app (interactive backtest, VIX regimes, VRP, election window and sensitivity; code in [`app/`](app/))
 
 A study of Nifty 50 options through India VIX, using daily data from January 2020 to April 2026. It covers:
 
