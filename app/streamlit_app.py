@@ -3,7 +3,7 @@
 Every number and series here is read from files that fdrm_vix_analysis.py already
 saved in output/. The app does not re-run the backtest; it only rebases the saved
 equity curves when you pick a later start date. The one live calculation is the
-insurance-price calculator on the "Start here" tab, which uses the same
+insurance cost calculator on the Introduction tab, which uses the same
 Black-Scholes pricing as the analysis.
 
 Run locally from the repo root:  streamlit run app/streamlit_app.py
@@ -28,13 +28,13 @@ REGIME_COLOURS = ["#2c7bb6", "#bdbdbd", "#d7191c"]
 
 # Plain-English names for the seven strategies (the technical names are in the files).
 FRIENDLY = {
-    "Unhedged": "No insurance (just hold Nifty)",
-    "Always 1M 95% put": "Insure every month (1-month put)",
-    "Always 1M 95/85 put spread": "Insure every month, cheaper capped version",
-    "Always 3M 95% put, rolled monthly": "Insure every month (3-month put)",
-    "VIX-timed 3M put, hold": "Insure only when calm, never sell early",
-    PROPOSED: "Insure only when calm, sell into panic (proposed)",
-    "VIX-timed 3M put, sell all at VIX 22": "Insure only when calm, sell all at VIX 22",
+    "Unhedged": "No hedge (just hold Nifty)",
+    "Always 1M 95% put": "1-month put every month",
+    "Always 1M 95/85 put spread": "1-month put spread every month",
+    "Always 3M 95% put, rolled monthly": "3-month put every month",
+    "VIX-timed 3M put, hold": "Put only when VIX < 13, held to expiry",
+    PROPOSED: "Put only when VIX < 13, sold in spikes (our rule)",
+    "VIX-timed 3M put, sell all at VIX 22": "Put only when VIX < 13, all sold at VIX 22",
 }
 NO_HEDGE, OURS = FRIENDLY["Unhedged"], FRIENDLY[PROPOSED]
 STRATEGY_COLOURS = {  # fixed colours so "no insurance" and "proposed" always look the same
@@ -50,10 +50,10 @@ METRIC_NAMES = {
 }
 TRADE_ACTIONS = {
     "open": "Bought the put", "roll_sell": "Swapped for a fresh 3-month put", "expiry": "Expired",
-    "monetise_1": "Sold half (VIX reached 22)", "monetise_trail": "Sold the rest (panic calming down)",
+    "monetise_1": "Sold half (VIX reached 22)", "monetise_trail": "Sold the rest (VIX 20% off its peak)",
 }
 
-st.set_page_config(page_title="India VIX and a timed put hedge", page_icon="📉", layout="wide")
+st.set_page_config(page_title="Group 8 · India VIX hedge", layout="wide")
 
 
 @st.cache_data
@@ -101,124 +101,111 @@ def hedge_put_cost_pct(vix):
 
 
 # ---------- header ----------
-st.title("Can you buy cheap crash insurance for the Indian stock market?")
+st.title("Nifty 50, India VIX and a crash-insurance rule")
 st.markdown(
-    "Nifty 50, India VIX (the market's \"fear meter\") and a simple insurance rule · "
-    "Financial Derivatives and Risk Management project, IIT Jodhpur · Subham Agrawal · "
-    f"[Code on GitHub]({REPO_URL})  \n"
-    f"Daily data {R['sample']['start']} to {R['sample']['end']} ({R['sample']['days']:,} trading days). "
-    "New to this? Start with the **Start here** tab."
+    "FDRM course project, **Group 8**, IIT Jodhpur · "
+    f"[Code and report on GitHub]({REPO_URL})  \n"
+    f"Daily data from {R['sample']['start']} to {R['sample']['end']} ({R['sample']['days']:,} trading days). "
+    "If you are new to options, read the Introduction tab first."
 )
 
 c = st.columns(4)
-c[0].metric("Return per year with our insurance rule", f"{p.CAGR:.1f}%",
-            f"{p.CAGR - u.CAGR:+.1f} pts vs no insurance", help="CAGR: compound annual growth rate")
-c[1].metric("Worst fall with our rule", f"{p.maxDD:.0f}%", f"{p.maxDD - u.maxDD:+.0f} pts vs no insurance",
+c[0].metric("Return per year, our rule", f"{p.CAGR:.1f}%",
+            f"{p.CAGR - u.CAGR:+.1f} pts vs no hedge", help="CAGR: compound annual growth rate")
+c[1].metric("Worst fall, our rule", f"{p.maxDD:.0f}%", f"{p.maxDD - u.maxDD:+.0f} pts vs no hedge",
             help="Maximum drawdown: the biggest drop from a previous high")
-c[2].metric("Time spent insured", f"{p.share_time_hedged:.0f}%", help="Share of days holding a put option")
-c[3].metric("How much options were overpriced", f"{R['vrp']['mean_vrp']:.1f} vol pts",
+c[2].metric("Days holding a put", f"{p.share_time_hedged:.0f}%")
+c[3].metric("Average VIX overpricing", f"{R['vrp']['mean_vrp']:.1f} pts",
             f"on {R['vrp']['share_positive']:.0%} of days", delta_color="off",
             help="Volatility risk premium: India VIX minus the volatility that actually followed")
 
 tab_start, tab_bt, tab_vix, tab_vrp, tab_elec, tab_sens = st.tabs([
-    "Start here", "Did the insurance work?", "The fear meter (VIX)", "Is insurance overpriced?",
-    "June 2024 election", "Did we get lucky?",
+    "Introduction", "Did the hedge work?", "India VIX", "Is insurance overpriced?",
+    "2024 election", "Robustness check",
 ])
 
-# ---------- 0. start here ----------
+# ---------- 0. introduction ----------
 with tab_start:
-    st.header("The story in one minute")
+    st.subheader("What the project is about")
     st.markdown(
-        "Imagine all your savings are invested in the **Nifty 50**, the 50 biggest companies in India. "
-        "Over the years it tends to go up, but sometimes it crashes: in early 2020 (COVID) it fell "
-        f"**{abs(u.maxDD):.0f}%** in two months.\n\n"
-        "You can buy **insurance** against a crash. In the market this insurance is called a **put option**, "
-        "and like any insurance it costs a premium. This project asks one question:\n\n"
-        "> **Can you buy crash insurance when it is cheap, and cash it in when everyone is panicking?**"
+        "Suppose your money is invested in the **Nifty 50** (the 50 largest companies on the NSE). It goes up "
+        f"over time, but it can also crash: in early 2020 it fell {abs(u.maxDD):.0f}% in about two months. "
+        "You can protect yourself with a **put option**, which works like insurance: you pay a small premium, "
+        "and if the market falls far enough the put pays you back.\n\n"
+        "The problem is that this insurance is expensive when everyone wants it. So our question was: "
+        "**can we buy puts when they are cheap and sell them when people panic?** We used **India VIX** "
+        "to decide when."
     )
 
-    st.subheader("Five ideas you need")
-    ideas = [
-        ("📈 Volatility: how much prices jump around",
-         "In a calm market Nifty moves about half a percent a day. In a panic it can move 5% or more in a day. "
-         "Finance quotes volatility per year, in %: about 9% a year in calm times here, over 30% in a panic."),
-        ("😨 India VIX: the fear meter",
-         "A number NSE publishes every day, worked out from option prices. It is the market's guess of how much "
-         "Nifty will move over the next 30 days. **Below 13: calm. 13 to 20: normal. Above 20: nervous.** "
-         "It reached 83.6 on 24 March 2020. Rule of thumb: VIX ÷ 3.5 ≈ the expected move in a month "
-         "(VIX 14 means about ±4%)."),
-        ("☂️ A put option: crash insurance",
-         "You pay a small price today. If Nifty ends below a chosen level (the **strike**), the put pays you the "
-         "difference. Our strike is 5% below today's level, like a 5% deductible: small dips are not covered, "
-         "big falls are. The put lasts 3 months."),
-        ("💸 Insurance is usually overpriced",
-         f"Most of the time VIX was higher than the movement that actually followed (by "
-         f"{R['vrp']['mean_vrp']:.1f} points on average, on {R['vrp']['share_positive']:.0%} of days). "
-         "Option sellers are like insurance companies: they usually win. So insuring all the time is expensive."),
-        ("🔁 Our rule: buy umbrellas when it's sunny",
-         "Buy the put only when VIX is **below 13**, when insurance is cheap. When VIX jumps to **22 or more** "
-         "(panic), sell half the put at the high price. Sell the rest once the panic starts calming down "
-         "(VIX 20% below its peak). Put the money back into Nifty."),
-    ]
-    cols = st.columns(2)
-    for i, (title, body) in enumerate(ideas):
-        with cols[i % 2].container(border=True):
-            st.markdown(f"**{title}**\n\n{body}")
+    st.subheader("Basic terms")
+    st.markdown(
+        "**Volatility** is how much prices move. A calm market moves about 0.5% a day; in a panic Nifty can move "
+        "5% or more in a day. It is usually quoted per year: about 9% in calm periods here, over 30% in a panic.\n\n"
+        "**India VIX** is published by NSE every day and is calculated from Nifty option prices. It is the "
+        "market's estimate of how much Nifty will move over the next 30 days, which is why it is called the "
+        "fear index. We split it into three regimes: below 13 is calm, 13 to 20 is normal, above 20 is "
+        "nervous. It peaked at 83.6 on 24 March 2020. A rough rule: VIX ÷ 3.5 is the expected move in a month, "
+        "so VIX 14 means about ±4%.\n\n"
+        "**A put option** gives you the right to sell Nifty at a fixed level (the **strike**) on a fixed date. "
+        "If Nifty ends below the strike, the put pays the difference. We use a 3-month put with the strike 5% "
+        "below the current level, so it works like insurance with a 5% deductible.\n\n"
+        "**Options are usually overpriced.** On most days VIX was higher than the volatility that actually "
+        f"followed: by {R['vrp']['mean_vrp']:.1f} points on average, on {R['vrp']['share_positive']:.0%} of days. "
+        "This gap is the **volatility risk premium**. Option sellers earn it, the same way insurance companies "
+        "do, so buying protection all the time costs a lot."
+    )
 
-    st.subheader("Try it: what does crash insurance cost?")
-    st.caption("Our put: 3 months long, strike 5% below today's Nifty, insuring your whole portfolio.")
+    st.subheader("Our rule")
+    st.markdown(
+        "1. On the first trading day of each month, buy the put only if VIX is **below 13** (cheap).\n"
+        "2. If VIX closes at **22 or higher**, sell half the put while it is expensive.\n"
+        "3. Sell the rest once VIX has fallen 20% from its peak, and put the money back into Nifty.\n\n"
+        "In short: buy umbrellas when it is sunny and sell them when it rains."
+    )
+
+    st.subheader("Insurance cost calculator")
+    st.caption("A 3-month put, strike 5% below today's Nifty, covering the whole portfolio.")
     left, right = st.columns([1, 2])
     with left:
         vix_now = st.slider("India VIX when you buy", 9, 60, 12)
-        fall = st.slider("How far Nifty falls over the 3 months (%)", 0, 40, 20)
+        fall = st.slider("Nifty fall over the 3 months (%)", 0, 40, 20)
     cost = hedge_put_cost_pct(vix_now)
     payout = max(fall - 5.0, 0.0)  # the put pays everything beyond the 5% deductible
     with right:
         m = st.columns(3)
-        m[0].metric("Insurance costs (% of your money)", f"{cost:.2f}%")
-        m[1].metric("The put pays back (% of your money)", f"{payout:.1f}%")
-        m[2].metric("Your loss with insurance", f"{-fall + payout - cost:.1f}%",
-                    f"instead of {-fall:.0f}% without", delta_color="off")
+        m[0].metric("Cost of the put", f"{cost:.2f}%")
+        m[1].metric("Payout at expiry", f"{payout:.1f}%")
+        m[2].metric("Loss with the put", f"{-fall + payout - cost:.1f}%",
+                    f"vs {-fall:.0f}% without", delta_color="off")
         st.markdown(
-            f"The same insurance costs **{hedge_put_cost_pct(12):.1f}%** at VIX 12 but "
-            f"**{hedge_put_cost_pct(25):.1f}%** at VIX 25, about "
-            f"{hedge_put_cost_pct(25) / hedge_put_cost_pct(12):.1f} times as much once people are scared. "
-            "That is why the rule only buys when VIX is low."
+            f"All values are % of the portfolio. The same put costs {hedge_put_cost_pct(12):.1f}% at VIX 12 and "
+            f"{hedge_put_cost_pct(25):.1f}% at VIX 25, about "
+            f"{hedge_put_cost_pct(25) / hedge_put_cost_pct(12):.1f} times more. That is why the rule only buys "
+            "when VIX is low."
         )
-    st.caption("Priced with the Black-Scholes formula at VIX plus a skew and a bid/ask margin, as in the analysis. "
-               "The payout shown is the value at expiry; before expiry a put is worth even more when VIX is high.")
+    st.caption("Priced with Black-Scholes at VIX plus a skew and bid/ask margin, the same way as in the analysis.")
 
-    st.subheader("What we found, in plain words")
+    st.subheader("Main results")
     st.markdown(
-        f"- **Insuring only when calm worked best:** {p.CAGR:.1f}% a year against {u.CAGR:.1f}% with no insurance, "
+        f"- Buying puts only when VIX was low gave {p.CAGR:.1f}% a year against {u.CAGR:.1f}% with no hedge, "
         f"and the worst fall was {abs(p.maxDD):.0f}% instead of {abs(u.maxDD):.0f}%.\n"
-        f"- **Insuring every month was too expensive:** it cost 3% to 5% of the portfolio a year and ended with "
-        f"lower returns than doing nothing.\n"
-        f"- **The honest catch:** nearly all of the gain came from one put bought in January 2020 for "
-        f"{-first.loc['open', 'cash'] * 100:.1f}% of the portfolio, which sold during the COVID crash for "
+        "- Buying a put every month cost 3% to 5% of the portfolio a year and ended below the unhedged return.\n"
+        f"- One caveat: most of the gain came from a single put bought in January 2020 for "
+        f"{-first.loc['open', 'cash'] * 100:.1f}% of the portfolio and sold in the COVID crash for "
         f"{covid_multiple:.0f} times its price. From July 2020 the rule returned {ex_covid[PROPOSED]['CAGR']:.1f}% "
-        f"a year against {ex_covid['Unhedged']['CAGR']:.1f}% with no insurance: about half a percent a year, "
-        "which is what the insurance costs in normal times. It is insurance, not a money machine."
+        f"a year against {ex_covid['Unhedged']['CAGR']:.1f}% with no hedge, so in normal years the protection "
+        "costs about 0.5% a year. It is insurance, not a way to beat the market."
     )
 
-    st.subheader("How to use this app")
-    st.markdown(
-        "- **Did the insurance work?** The rule against six other choices, with every trade it made.\n"
-        "- **The fear meter (VIX):** Nifty and VIX over time, coloured calm, normal and nervous.\n"
-        "- **Is insurance overpriced?** What the market expected against what actually happened.\n"
-        "- **June 2024 election:** how fear built up before the result and vanished after it.\n"
-        "- **Did we get lucky?** The same rule with other buy and sell levels."
-    )
     with st.expander("Glossary"):
         st.markdown(
             "- **Nifty 50:** index of the 50 largest companies on India's National Stock Exchange (NSE).\n"
             "- **Volatility:** how much prices move, per year, in %.\n"
             "- **India VIX:** the market's forecast of Nifty's volatility over the next 30 days, from option prices.\n"
             "- **Option:** a contract giving the right, not the obligation, to sell (a put) or buy (a call) at a set price.\n"
-            "- **Put:** pays when the market falls below the strike. Here, crash insurance.\n"
             "- **Strike:** the level below which the put starts paying.\n"
             "- **Premium:** the price you pay for an option.\n"
-            "- **Hedge:** holding insurance alongside an investment.\n"
+            "- **Hedge:** holding protection alongside an investment.\n"
             "- **Volatility risk premium:** how much more options charge than the volatility that follows.\n"
             "- **Drawdown:** a fall from the previous high. Maximum drawdown is the worst one.\n"
             "- **CAGR:** average growth per year, compounded.\n"
@@ -228,10 +215,9 @@ with tab_start:
 
 # ---------- 1. backtest ----------
 with tab_bt:
-    st.info(
-        "**In plain words:** each line is ₹1 invested in January 2020 and how it grew under each choice. "
-        "The lower chart shows how far each one was below its previous high. Shallower dips mean the insurance "
-        "was protecting you."
+    st.markdown(
+        "Each line shows how ₹1 invested on 2 January 2020 grew under each strategy. The lower chart shows how "
+        "far each one was below its previous high, so a shallower dip means better protection."
     )
     left, right = st.columns([1, 3])
     with left:
@@ -263,7 +249,7 @@ with tab_bt:
     else:
         st.info("Pick at least one strategy.")
 
-    st.subheader("All seven choices")
+    st.subheader("All seven strategies")
     if start.startswith("1 Jul"):
         table = pd.DataFrame(ex_covid).T.rename(index=FRIENDLY)[["CAGR", "vol", "sharpe", "maxDD", "worst_day"]]
     else:
@@ -287,10 +273,9 @@ with tab_bt:
 
 # ---------- 2. Nifty and VIX ----------
 with tab_vix:
-    st.info(
-        "**In plain words:** the top chart is the Nifty 50. The dots below are India VIX, the fear meter, "
-        "coloured **blue when calm** (below 13), **grey when normal** and **red when nervous** (above 20). "
-        "Notice that VIX shoots up exactly when Nifty falls."
+    st.markdown(
+        "Top: Nifty 50. Bottom: India VIX, coloured by regime (blue below 13, grey 13 to 20, red above 20). "
+        "VIX jumps when Nifty falls."
     )
     m = market[["Date", "Close", "VIX", "regime"]]
     brush = alt.selection_interval(encodings=["x"])
@@ -325,11 +310,10 @@ with tab_vix:
 
 # ---------- 3. VRP ----------
 with tab_vrp:
-    st.info(
-        "**In plain words:** the blue line is what the market *expected* Nifty to move (India VIX). The orange "
-        "line is how much it *actually* moved over the next month. Blue sits above orange most of the time, "
-        "so option buyers usually paid for more movement than they got, just as insurance premiums are "
-        "usually higher than the claims. The exceptions are crashes, when orange shoots above blue."
+    st.markdown(
+        "Blue is India VIX, the volatility the market expected. Orange is the volatility Nifty actually had over "
+        "the next 21 trading days. Blue is above orange most of the time, so option buyers usually paid for more "
+        "movement than they got. The exceptions are crashes, where orange goes above blue."
     )
     vr = market.dropna(subset=["rv21_fwd"])[["Date", "VIX", "rv21_fwd"]].rename(
         columns={"VIX": "India VIX (expected)", "rv21_fwd": "What actually happened next month"}
@@ -361,12 +345,11 @@ with tab_vrp:
 # ---------- 4. election ----------
 with tab_elec:
     e = R["election"]
-    st.info(
-        "**In plain words:** an election has a known date and an unknown result, so fear builds up before it. "
-        f"VIX climbed from about {e['vix_min_apr_2024']:.0f} in April to the mid-20s. On result day (4 June 2024) "
-        f"Nifty fell **{abs(e['nifty_ret_4jun_pct']):.1f}%**, and the next day VIX dropped "
-        f"{abs(e['vix_change_5jun_pct']):.0f}% as the uncertainty disappeared. Insurance was cheap in April and "
-        "very expensive in late May."
+    st.markdown(
+        "The 2024 Lok Sabha result had a known date but an uncertain outcome, so VIX rose in the weeks before it, "
+        f"from about {e['vix_min_apr_2024']:.0f} in April to the mid-20s. On result day (4 June) Nifty fell "
+        f"{abs(e['nifty_ret_4jun_pct']):.1f}%, and the next day VIX dropped {abs(e['vix_change_5jun_pct']):.0f}% "
+        "once the result was known. Puts were cheap in April and expensive by late May."
     )
     el = election[["Date", "Close", "ret_pct", "VIX", "put22500"]].rename(
         columns={"Close": "Nifty", "ret_pct": "Nifty change (%)", "VIX": "India VIX",
@@ -389,11 +372,10 @@ with tab_elec:
 
 # ---------- 5. sensitivity ----------
 with tab_sens:
-    st.info(
-        "**In plain words:** we chose \"buy below 13\" and \"sell at 22\" by looking at this same data, which "
-        "could flatter the result. So here is the rule with every other pair of levels we tested. Every "
-        "\"buy only when calm\" row beats the \"always\" row (buying every month), so the conclusion does not "
-        "depend on picking exactly 13 and 22."
+    st.markdown(
+        "We picked the levels 13 and 22 using the same data we tested on, which can flatter the result. This "
+        "grid repeats the backtest for other buy and sell levels. Every \"buy only below X\" row beats the "
+        "\"always\" row (buying every month), so the result does not depend on 13 and 22 exactly."
     )
     metric_labels = {"CAGR": "Return per year (%)", "maxDD": "Worst fall (%)",
                      "sharpe": "Sharpe ratio", "calmar": "Calmar ratio (return ÷ worst fall)"}
@@ -407,11 +389,12 @@ with tab_sens:
     ).properties(height=300)
     text = heat.mark_text(fontSize=13).encode(text=alt.Text(f"{metric}:Q", format=".2f"), color=alt.value("black"))
     st.altair_chart(heat + text, width="stretch")
-    st.caption("Our rule is buy below 13, first sale at 22. The \"always\" row buys every month whatever VIX is.")
+    st.caption("Our rule: buy below 13, first sale at 22. The \"always\" row buys every month regardless of VIX.")
     st.image(str(FIG / "fig8_sensitivity.png"))
 
 st.divider()
 st.caption(
+    "Group 8, Financial Derivatives and Risk Management, IIT Jodhpur. "
     "Limitations: option prices are modelled from VIX rather than taken from real trades; VIX (a 30-day measure) "
     "is used to price 3-month puts; six years contain only one real crash; no taxes or brokerage. "
     f"Full method in the [README]({REPO_URL})."
