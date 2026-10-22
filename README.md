@@ -4,7 +4,7 @@ FDRM course project by **Group 8**, IIT Jodhpur.
 
 [![Live app](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://subham-fdrm-vix.streamlit.app) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subham1709/FDRM_VIX/blob/main/fdrm_vix_analysis_colab.ipynb)
 
-**Live app:** https://subham-fdrm-vix.streamlit.app (interactive backtest, VIX regimes, VRP, election window and sensitivity; code in [`app/`](app/))
+**Live app:** https://subham-fdrm-vix.streamlit.app (a plain-English introduction with an insurance cost calculator, then the backtest, VIX regimes, option overpricing, the 2024 election and the robustness check; code in [`app/`](app/))
 
 A study of Nifty 50 options through India VIX, using daily data from January 2020 to April 2026. It covers:
 
@@ -69,6 +69,7 @@ Then use Runtime > Run all. Charts and tables appear in the Files panel (folder 
 | `data/` | The two input series (see below) |
 | `figures/` | The 8 charts |
 | `output/` | Every table: performance, regime statistics, the election window, cost and payoff by regime, every option trade of each strategy (`ledger_*.csv`), sensitivity grids, and `results.json` |
+| `docs/fdrm_vix_report.pdf` | The written report (14 pages) |
 | `docs/fdrm_vix_presentation.pptx`, `.pdf` | 17-slide presentation with speaker notes |
 | `docs/fdrm_vix_study_guide.pdf` | Study guide (21 pages): theory, data, results, likely questions, the code, every slide, glossary |
 | `docs/fdrm_vix_study_guide_full.pdf` | Full study guide (67 pages) |
