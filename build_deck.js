@@ -27,7 +27,7 @@ const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
 pres.title = "Nifty Options, India VIX and a VIX-Timed Hedge";
-pres.subject = "FDRM assignment: volatility dynamics and the fear index";
+pres.subject = "FDRM course project: volatility dynamics and the fear index";
 const C = pres.SchemeColor;
 
 const W = 13.333, M = 0.6, CW = W - 2 * M;
@@ -114,7 +114,7 @@ let s;
 pres.addSection({ title: "Overview" });
 s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Overview" });
 s.addText("Nifty Options, India VIX and a VIX-Timed Hedge", { placeholder: "title" });
-s.addText("Volatility dynamics, the 4 June 2024 election, and a backtest of protection bought in calm markets and sold into fear\nFDRM assignment  ·  October 2026", { placeholder: "body" });
+s.addText("Volatility dynamics, the 4 June 2024 election, and a backtest of protection bought in calm markets and sold into fear\nFDRM course project  ·  Group 8, IIT Jodhpur  ·  October 2026", { placeholder: "body" });
 s.addNotes("This deck covers the three syllabus topics: implied versus realised volatility and the volatility risk premium, how India VIX is built and used as a sentiment gauge, and how VIX regimes relate to Nifty returns. It then looks at option premiums around the 4 June 2024 election result and proposes and backtests a protection strategy for a long-term Nifty portfolio.");
 
 // ================= 2. Four numbers =================

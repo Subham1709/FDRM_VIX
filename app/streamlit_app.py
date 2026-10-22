@@ -81,7 +81,7 @@ trades = load_csv("ledger_s5_timed_hybrid.csv", parse_dates=["date"])
 p, u = perf.loc[OURS], perf.loc[NO_HEDGE]
 ex_covid = R["ex_covid_performance"]
 first = trades[trades.trade_id == 0].set_index("action")
-covid_multiple = first.loc["monetise_trail", "price"] / first.loc["open", "price"]
+covid_multiple = first.loc[["monetise_1", "monetise_trail"], "cash"].sum() / -first.loc["open", "cash"]
 
 
 def put_price(spot, strike, years, vol, r=0.065, q=0.013):
@@ -191,8 +191,8 @@ with tab_start:
         f"and the worst fall was {abs(p.maxDD):.0f}% instead of {abs(u.maxDD):.0f}%.\n"
         "- Buying a put every month cost 3% to 5% of the portfolio a year and ended below the unhedged return.\n"
         f"- One caveat: most of the gain came from a single put bought in January 2020 for "
-        f"{-first.loc['open', 'cash'] * 100:.1f}% of the portfolio and sold in the COVID crash for "
-        f"{covid_multiple:.0f} times its price. From July 2020 the rule returned {ex_covid[PROPOSED]['CAGR']:.1f}% "
+        f"{-first.loc['open', 'cash'] * 100:.1f}% of the portfolio and sold during the COVID crash for about "
+        f"{covid_multiple:.0f} times what it cost. From July 2020 the rule returned {ex_covid[PROPOSED]['CAGR']:.1f}% "
         f"a year against {ex_covid['Unhedged']['CAGR']:.1f}% with no hedge, so in normal years the protection "
         "costs about 0.5% a year. It is insurance, not a way to beat the market."
     )
