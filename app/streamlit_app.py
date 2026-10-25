@@ -391,11 +391,23 @@ with tab_sens:
     st.altair_chart(heat + text, width="stretch")
     st.caption("Our rule: buy below 13, first sale at 22. The \"always\" row buys every month regardless of VIX.")
     st.image(str(FIG / "fig8_sensitivity.png"))
+    st.subheader("Limitations")
+    st.markdown(
+        "- **Option prices are modelled.** We priced every put with Black-Scholes from India VIX, plus a skew and a "
+        "bid/ask cost, instead of NSE's recorded prices, because 3-month puts trade thinly and many daily prices are "
+        "missing. Real prices would differ, most of all during a crash.\n"
+        "- **VIX is a 30-day measure, used here for 3-month puts.** In calm markets real 3-month puts usually cost a "
+        "little more, so the rule probably looks slightly better here than it would with real prices.\n"
+        "- **Six years, one real crash.** The data runs from January 2020 to April 2026, and the rule's whole lead "
+        "over no hedge comes from the COVID crash; from July 2020 it returned slightly less. The levels 13 and 22 "
+        "were also chosen on this same data, which is why we ran the grid above.\n"
+        "- **Simplified trading.** Puts expire on the first trading day of each month rather than on NSE's expiry "
+        "days, trades happen at the daily close, and there are no taxes, brokerage or margin costs."
+    )
 
 st.divider()
 st.caption(
     "Group 8, Financial Derivatives and Risk Management, IIT Jodhpur. "
-    "Limitations: option prices are modelled from VIX rather than taken from real trades; VIX (a 30-day measure) "
-    "is used to price 3-month puts; six years contain only one real crash; no taxes or brokerage. "
+    "Limitations are listed at the end of the Robustness check tab. "
     f"Full method in the [README]({REPO_URL})."
 )
