@@ -143,5 +143,10 @@ ws["A1"].font = Font(bold=True, size=14)
 for r, (a, _) in enumerate(rows, 1):
     if a in ("Key results", "Sheets"):
         ws.cell(r, 1).font = Font(bold=True, size=12)
+for r in range(1, ws.max_row + 1):
+    v = ws.cell(r, 2).value
+    if isinstance(v, str) and v.startswith("https://"):
+        ws.cell(r, 2).hyperlink = v
+        ws.cell(r, 2).font = Font(color="0563C1", underline="single")
 wb.save(XLSX)
 print(XLSX, [s.title for s in wb.worksheets])
