@@ -71,6 +71,7 @@ Then use Runtime > Run all. Charts and tables appear in the Files panel (folder 
 | `output/` | Every table: performance, regime statistics, the election window, cost and payoff by regime, every option trade of each strategy (`ledger_*.csv`), sensitivity grids, and `results.json` |
 | `docs/fdrm_vix_report.pdf` | The written report (14 pages) |
 | `docs/fdrm_vix_presentation.pptx`, `.pdf` | 17-slide presentation with speaker notes |
+| `docs/fdrm_vix_results.xlsx` | Every result table in one Excel workbook, built by `build_workbook.py` |
 | `docs/fdrm_vix_study_guide.pdf` | Study guide (21 pages): theory, data, results, likely questions, the code, every slide, glossary |
 | `docs/fdrm_vix_study_guide_full.pdf` | Full study guide (67 pages) |
 | `docs/fdrm_vix_code_walkthrough.pdf` | The script explained line by line (29 pages) |

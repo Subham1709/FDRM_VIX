@@ -4,3 +4,4 @@ scipy>=1.14
 statsmodels>=0.14
 matplotlib>=3.9
 yfinance>=0.2.40   # only for live data in the Colab notebook
+openpyxl>=3.1    # only for build_workbook.py
