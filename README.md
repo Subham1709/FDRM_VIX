@@ -1,6 +1,6 @@
 # Volatility Dynamics and the Fear Index: Nifty 50, India VIX and a VIX-timed put hedge
 
-FDRM course project by **Group 8**, IIT Jodhpur.
+Course project for Financial Derivatives and Risk Management (FDRM), IIT Jodhpur, built solo by **Subham Agrawal**: data, code, analysis, report and the live app.
 
 [![Live app](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://subham-fdrm-vix.streamlit.app) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Subham1709/FDRM_VIX/blob/main/fdrm_vix_analysis_colab.ipynb)
 

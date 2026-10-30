@@ -129,7 +129,7 @@ ws = wb["About"]
 ws.column_dimensions["A"].width = 46
 ws.column_dimensions["B"].width = 80
 rows = [("Volatility dynamics and the fear index: results workbook", None),
-        ("FDRM course project, Group 8, IIT Jodhpur", None), (None, None),
+        ("FDRM course project, IIT Jodhpur, built solo by Subham Agrawal", None), (None, None),
         ("Code and report", "https://github.com/Subham1709/FDRM_VIX"),
         ("Live app", "https://subham-fdrm-vix.streamlit.app"),
         ("Note", "Option prices are modelled with Black-Scholes-Merton from India VIX (skew +0.6 vol pt per 1% OTM, "

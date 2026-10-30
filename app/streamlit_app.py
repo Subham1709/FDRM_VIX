@@ -53,7 +53,7 @@ TRADE_ACTIONS = {
     "monetise_1": "Sold half (VIX reached 22)", "monetise_trail": "Sold the rest (VIX 20% off its peak)",
 }
 
-st.set_page_config(page_title="Group 8 · India VIX hedge", layout="wide")
+st.set_page_config(page_title="India VIX hedge · Subham Agrawal", layout="wide")
 
 
 @st.cache_data
@@ -103,7 +103,8 @@ def hedge_put_cost_pct(vix):
 # ---------- header ----------
 st.title("Nifty 50, India VIX and a crash-insurance rule")
 st.markdown(
-    "FDRM course project, **Group 8**, IIT Jodhpur · "
+    "Course project for Financial Derivatives and Risk Management (FDRM), IIT Jodhpur · "
+    "built solo by **Subham Agrawal** (data, code, analysis and this app) · "
     f"[Code and report on GitHub]({REPO_URL})  \n"
     f"Daily data from {R['sample']['start']} to {R['sample']['end']} ({R['sample']['days']:,} trading days). "
     "If you are new to options, read the Introduction tab first."
@@ -407,7 +408,7 @@ with tab_sens:
 
 st.divider()
 st.caption(
-    "Group 8, Financial Derivatives and Risk Management, IIT Jodhpur. "
+    "Course project for Financial Derivatives and Risk Management, IIT Jodhpur, built solo by Subham Agrawal. "
     "Limitations are listed at the end of the Robustness check tab. "
     f"Full method in the [README]({REPO_URL})."
 )
